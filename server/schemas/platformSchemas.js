@@ -13,7 +13,14 @@ const updatePlatformSchema = {
   }),
 };
 
+const deletePlatformSchema = {
+  body: Joi.object({
+    id: Joi.objectId().required(),
+  }),
+};
+
 module.exports = {
   platformSchema,
   updatePlatformSchema,
+  deletePlatformSchema,
 };
