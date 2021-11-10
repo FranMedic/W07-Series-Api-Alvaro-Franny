@@ -6,6 +6,14 @@ const platformSchema = {
   }),
 };
 
+const updatePlatformSchema = {
+  body: Joi.object({
+    name: Joi.string().required(),
+    id: Joi.objectId().required(),
+  }),
+};
+
 module.exports = {
   platformSchema,
+  updatePlatformSchema,
 };
