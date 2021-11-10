@@ -3,7 +3,7 @@ const chalk = require("chalk");
 
 const mongoose = require("mongoose");
 
-const connectDB = () =>
+const connectDB = (seriesDB) =>
   new Promise((resolve, reject) => {
     mongoose.set("toJSON", {
       virtuals: true,
@@ -13,7 +13,7 @@ const connectDB = () =>
       },
     });
 
-    mongoose.connect(process.env.MONGODB_SERIES, (error) => {
+    mongoose.connect(seriesDB, (error) => {
       if (error) {
         debug(chalk.red("Error starting Database"));
         debug(chalk.red(error.message));
