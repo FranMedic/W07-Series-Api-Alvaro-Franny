@@ -3,7 +3,7 @@ const cors = require("cors");
 const debug = require("debug")("series:server");
 const morgan = require("morgan");
 const chalk = require("chalk");
-const { notFoundHandler, generalErrorHandler } = require("../middleware/error");
+const { notFoundHandler, generalErrorHandler } = require("./middleware/error");
 
 const app = express();
 
@@ -31,6 +31,8 @@ app.use((req, res, next) => {
   debug(chalk.green("REQUEST ARRIVED ʕง•ᴥ•ʔง"));
   next();
 });
+
+app.use("/platforms", platformsRoutes);
 
 app.use(notFoundHandler);
 app.use(generalErrorHandler);
