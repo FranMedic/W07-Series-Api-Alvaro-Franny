@@ -4,11 +4,7 @@ const {
   getPlatforms,
   createPlatform,
 } = require("../controllers/platformControllers");
-const {
-  updatePlatformSchema,
-  platformSchema,
-  deletePlatformSchema,
-} = require("../schemas/platformSchemas");
+const { platformSchema } = require("../schemas/platformSchemas");
 
 const router = express.Router();
 
