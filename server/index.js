@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const chalk = require("chalk");
 const { notFoundHandler, generalErrorHandler } = require("./middlewares/error");
 const platformsRoutes = require("./routes/platformsRoutes");
+const userRoutes = require("./routes/userRoutes");
 
 const app = express();
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/users", userRoutes);
 app.use("/platforms", platformsRoutes);
 
 app.use(notFoundHandler);
