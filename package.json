@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll --collect-coverage",
     "start": "node .",
-    "start-dev": "nodemon ."
+    "start-dev": "nodemon -q"
   },
   "keywords": [],
   "author": "",
