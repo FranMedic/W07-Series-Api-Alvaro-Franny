@@ -4,6 +4,7 @@ const debug = require("debug")("series:server");
 const morgan = require("morgan");
 const chalk = require("chalk");
 const { notFoundHandler, generalErrorHandler } = require("./middleware/error");
+const platformsRoutes = require("./routes/platformsRoutes");
 
 const app = express();
 

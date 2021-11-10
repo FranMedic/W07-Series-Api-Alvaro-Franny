@@ -1,4 +1,5 @@
 const { Joi } = require("express-validation");
+Joi.objectId = require("joi-objectid")(Joi);
 
 const platformSchema = {
   body: Joi.object({
