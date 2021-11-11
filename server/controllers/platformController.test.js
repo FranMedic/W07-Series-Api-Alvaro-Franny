@@ -33,7 +33,7 @@ describe("Given a getPlatforms function", () => {
 
 describe("Given a createPlatform function", () => {
   describe("When it receives a req object with a body, a res object and a next function", () => {
-    test("Then it should invoke the method json of res with the platform sended and have an status 201", async () => {
+    test("Then it should invoke the method json of res with the platform sent and have an status 201", async () => {
       const onePlatform = getFakePlatform();
       const req = {
         body: onePlatform,

@@ -54,7 +54,7 @@ describe("Given generalErrorHandler function", () => {
   });
 
   describe("when it receives a ValidationError", () => {
-    test("then it should it should invoke res object with a Sended wrong format of request ! (╯°□°）╯︵ ┻━┻, and an error code of 400", () => {
+    test("then it should it should invoke res object with a Sent wrong format of request ! (╯°□°）╯︵ ┻━┻, and an error code of 400", () => {
       const res = mockResponse();
 
       const error = new ValidationError("details", {
@@ -63,7 +63,7 @@ describe("Given generalErrorHandler function", () => {
       });
 
       const expectedError = {
-        error: "Sended wrong format of request ! (╯°□°）╯︵ ┻━┻",
+        error: "Sent wrong format of request ! (╯°□°）╯︵ ┻━┻",
       };
 
       generalErrorHandler(error, null, res);

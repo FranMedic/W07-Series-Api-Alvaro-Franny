@@ -10,7 +10,7 @@ const notFoundHandler = (req, res) => {
 const generalErrorHandler = (error, req, res, next) => {
   if (error instanceof ValidationError) {
     error.code = 400;
-    error.message = "Sended wrong format of request ! (╯°□°）╯︵ ┻━┻";
+    error.message = "Sent wrong format of request ! (╯°□°）╯︵ ┻━┻";
   }
   debug(chalk.red("There was an error (╯°□°）╯︵ ┻━┻: ", error.message));
   const message = error.code
