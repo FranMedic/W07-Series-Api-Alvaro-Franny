@@ -28,7 +28,7 @@ const loginUser = async (req, res, next) => {
           expiresIn: 24 * 60 * 60,
         }
       );
-      req.json({ token });
+      res.json({ token });
     }
   }
 };
