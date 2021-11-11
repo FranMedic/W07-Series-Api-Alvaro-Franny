@@ -1,3 +1,4 @@
+const { ValidationError } = require("express-validation");
 const { notFoundHandler, generalErrorHandler } = require("./error");
 
 const mockResponse = () => {
@@ -55,15 +56,20 @@ describe("Given generalErrorHandler function", () => {
   describe("when it receives a ValidationError", () => {
     test("then it should it should invoke res object with a Sended wrong format of request ! (╯°□°）╯︵ ┻━┻, and an error code of 400", () => {
       const res = mockResponse();
-      const ValidateError = () =>
-        new Error("Sended wrong format of request ! (╯°□°）╯︵ ┻━┻");
-      const error = ValidateError();
-      error.code = 400;
+
+      const error = new ValidationError("details", {
+        error: new Error(),
+        statusCode: 400,
+      });
+
+      const expectedError = {
+        error: "Sended wrong format of request ! (╯°□°）╯︵ ┻━┻",
+      };
 
       generalErrorHandler(error, null, res);
 
-      expect(res.json).toHaveBeenCalledWith({ error: error.message });
-      expect(res.status).toHaveBeenCalledWith(error.code);
+      expect(res.json).toHaveBeenCalledWith(expectedError);
+      expect(res.status).toHaveBeenCalledWith(error.statusCode);
     });
   });
 });
