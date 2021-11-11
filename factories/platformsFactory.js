@@ -1,8 +1,10 @@
 const { Factory } = require("fishery");
+const ObjectID = require("bson-objectid");
 
 const { lorem } = require("faker");
 
 const factoryPlatforms = Factory.define(() => ({
+  id: `${ObjectID()}`,
   name: lorem.words(2),
 }));
 
